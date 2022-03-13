@@ -1,0 +1,141 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(255, 255, 249);
+}
+
+.card-container{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    width: 400px;
+    height: 600px;
+    background-color: rgb(221, 221, 221);
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.466));
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.date-and-refresh{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 10px 5px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 15px;
+    width: auto;
+    height: 5%;
+    flex: 5;
+    font-size: 1.5rem;
+}
+
+
+.list-container{
+    display: flex;
+    flex-direction: column;
+    margin: 5px 10px 5px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 15px;
+    width: auto;
+    max-height: 80%;
+    overflow: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    flex: 60;
+}
+
+.task-element{
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.466));
+    list-style: none;
+    width: auto;
+    height: 40px;
+    margin: 10px 5px;
+    border-radius: 10px;
+}
+
+.icon{
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.icon:hover{
+    transform: scale(1.15);
+    transition: 0.2s ease-in-out;
+}
+
+
+.line-through{
+    text-decoration-line: line-through;
+    color: gray;
+}
+
+.task-element i.check{
+    position: absolute;
+    top: 11px;
+    left: 5px;
+}
+
+.task-element p{
+    position: absolute;
+    top: 10px;
+    left: 30px;
+}
+
+.task-element .delete{
+    position: absolute;
+    top: 10px;
+    right: 16px;
+}
+
+/* Add a note Container */
+
+.add-note{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin: 5px 10px 10px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 15px;
+    width: auto;
+    flex: 5;
+}
+
+.add-note i.add{
+    position: absolute;
+    top: 15px;
+    left:10px;
+}
+
+.add-note input{
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    border: none;
+    font-size: 15px;
+    width: 60%;
+    cursor: pointer;
+}
+
+.add-note input:focus{
+    outline: none;
+}
+
+.add{
+    cursor: pointer;
+}
