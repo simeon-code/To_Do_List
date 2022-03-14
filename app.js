@@ -3,11 +3,13 @@ const taskInput = document.getElementById('task-input');
 const taskList = document.getElementById('tasks');
 const addButton = document.getElementById('add-button');
 const refreshButton = document.querySelector('.refresh');
+
+//ClassList variables
 const UNCHECKED_ICON = "far";
 const CHECKED_ICON = "fas";
 const LINE_THROUGH = "line-through";
 
-//Date
+//Today's date element
 const options = {month: "long", day: "numeric", year: "numeric"};
 const today = new Date();
 dateText.innerHTML = today.toLocaleDateString("bg-BG", options);
@@ -15,8 +17,8 @@ dateText.innerHTML = today.toLocaleDateString("bg-BG", options);
 //array to store all the elements
 let arr = [];
 let id = 0;
-//local storage backup
 
+//local storage backup
 let data = localStorage.getItem("TODO");
 if(data){
     arr = JSON.parse(data);
@@ -34,7 +36,7 @@ function loadList(array){
 
 
 
-//Adding a task
+//Funtion to add a task element in the list
 function addTask(textInput, id, done){
 
     const DONE = done ? CHECKED_ICON : UNCHECKED_ICON;
@@ -53,8 +55,8 @@ function addTask(textInput, id, done){
 }
 
 
-//Adding using the input panel
 
+//Function to add a task using the input panel
 function newTask(){
     const inputText = taskInput.value;
     if(inputText){
@@ -80,7 +82,7 @@ document.addEventListener("keydown", function(e){
 addButton.addEventListener('click', newTask);
 
 
-//Complete task
+//Function to check/uncheck a task element
 function completeTask(task){
     task.classList.toggle(CHECKED_ICON);
     task.classList.toggle(UNCHECKED_ICON);
@@ -93,9 +95,9 @@ function completeTask(task){
     }
 }
 
-//Remove task
+//Function to remove a task element
 function removeTask(element){
-    //element is the trash bin
+    //Element being the trash bin icon
     element.parentNode.parentNode.removeChild(element.parentNode);
 
     for(let i=0; i < arr.length; i++){
@@ -106,7 +108,7 @@ function removeTask(element){
     }
 }
 
-//Completing!
+//Changing task element status
 taskList.addEventListener('click', function(el){
     if(el.target.classList.contains("check")){
         completeTask(el.target);
@@ -116,6 +118,7 @@ taskList.addEventListener('click', function(el){
     localStorage.setItem("TODO", JSON.stringify(arr));
 });
 
+//Deleting all the saved elements
 refreshButton.addEventListener('click', function(){
     localStorage.clear();
     location.reload();
