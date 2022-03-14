@@ -1,2 +1,2 @@
 # To_Do_List
-Personal web project
+Personal web project under development
