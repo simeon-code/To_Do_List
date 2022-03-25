@@ -12,6 +12,7 @@ body{
 
 .card-container{
     display: flex;
+    flex-wrap: wrap;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -19,11 +20,20 @@ body{
     transform: translate(-50%, -50%);
     flex-direction: column;
     width: 400px;
-    height: 600px;
+    height: 90vh;
+    min-height: 200px;
+    max-height: 600px;
     background-color: rgb(221, 221, 221);
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.466));
     border-radius: 20px;
     box-sizing: border-box;
+}
+
+@media screen and (max-width: 400px) {
+    .card-container{
+        width: 320px;
+        max-height: none;
+    }
 }
 
 .date-and-refresh{
@@ -33,11 +43,10 @@ body{
     align-items: center;
     margin: 10px 10px 5px;
     padding: 10px;
-    background-color: white;
+    background-color: rgb(221, 221, 221);
     border-radius: 15px;
     width: auto;
-    height: 5%;
-    flex: 5;
+    height: 50px;
     font-size: 1.5rem;
 }
 
@@ -48,9 +57,8 @@ body{
     margin: 5px 10px 5px;
     padding: 5px;
     background-color: white;
-    border-radius: 15px;
+    border-radius: 15px 15px 0px 0px;
     width: auto;
-    max-height: 80%;
     overflow: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -58,7 +66,7 @@ body{
 }
 
 .task-element{
-    position: relative;
+    display: block;
     background-color: rgb(255, 255, 255);
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.466));
     list-style: none;
@@ -87,18 +95,22 @@ body{
 .task-element i.check{
     position: absolute;
     top: 11px;
-    left: 5px;
+    left: 10px;
 }
 
 .task-element p{
     position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    height: auto;
     top: 10px;
-    left: 30px;
+    left: 35px;
 }
 
 .task-element .delete{
     position: absolute;
-    top: 10px;
+    top: 11px;
     right: 16px;
 }
 
@@ -111,14 +123,14 @@ body{
     margin: 5px 10px 10px;
     padding: 5px;
     background-color: white;
-    border-radius: 15px;
+    border-radius: 0px 0px 15px 15px;
     width: auto;
-    flex: 5;
+    height: 50px;
 }
 
 .add-note i.add{
     position: absolute;
-    top: 15px;
+    top: 17px;
     left:10px;
 }
 
@@ -138,4 +150,15 @@ body{
 
 .add{
     cursor: pointer;
+}
+
+.symbol-counter{
+    position: absolute;
+    top:15px;
+    right: 15px;
+    color:gray;
+}
+
+.stop-counter{
+    color:rgba(104, 0, 0, 0.479);
 }

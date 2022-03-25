@@ -3,6 +3,7 @@ const taskInput = document.getElementById('task-input');
 const taskList = document.getElementById('tasks');
 const addButton = document.getElementById('add-button');
 const refreshButton = document.querySelector('.refresh');
+const symbolCounter = document.querySelector('.symbol-counter');
 
 //ClassList variables
 const UNCHECKED_ICON = "far";
@@ -124,13 +125,16 @@ refreshButton.addEventListener('click', function(){
     location.reload();
 });
 
-//Adding task using the input panel     JQUERY
-// $('document').keydown(function(e){
-//     if(e.key==="Enter"){
-//         const inputText = taskInput.value;
-//         if(inputText){
-//             addTask(inputText);
-//         }
-//         taskInput.value = "";
-//     }
-// });
+//Symbol counter
+taskInput.addEventListener('keyup', function(){
+    let inputValue = taskInput.value;
+    let inputLength = inputValue.length;
+    symbolCounter.innerHTML = `${inputLength}/20`;
+    if(inputLength==20){
+        symbolCounter.classList.add('stop-counter');
+    }else if(inputLength<25){
+        symbolCounter.classList.remove('stop-counter');
+    }
+    
+});
+
